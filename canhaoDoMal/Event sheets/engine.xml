@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>engine</name>
+    <events>
+        <event-block sid="962945154753157">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="162922982168009" type="System" />
+            </conditions>
+            <actions>
+                <action id="-22" name="Set angle toward position" sid="832528515878144" type="canhao">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="622057602684052">
+            <conditions>
+                <condition id="1" name="On any click" sid="958211218728414" type="Mouse" />
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="590671380547909" type="canhao">
+                    <param id="0" name="Object">bullet</param>
+                    <param id="1" name="Layer">&quot;main&quot;</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action behavior="Physics" id="5" name="Apply impulse at angle" sid="621652540053855" type="bullet">
+                    <param id="0" name="Impulse">distance(canhao.X,canhao.Y,Mouse.X,Mouse.Y) / 25</param>
+                    <param id="1" name="Angle">canhao.Angle</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="330071245020949">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="789017009582838" type="bullet">
+                    <param id="0" name="Object">box</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="115417974524563" type="box" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

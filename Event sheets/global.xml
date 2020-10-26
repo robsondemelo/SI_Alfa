@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>global</name>
+    <events>
+        <variable constant="0" name="boxExtra" sid="332019855891085" static="0" type="number">3</variable>
+        <variable constant="0" name="percBox" sid="536089781832820" static="0" type="number">0.5</variable>
+        <variable constant="0" name="maxShoot" sid="706417218637612" static="0" type="number">0</variable>
+        <variable constant="0" name="endBox" sid="446543762294093" static="0" type="number">0</variable>
+        <variable constant="0" name="startBox" sid="508553917915846" static="0" type="number">0</variable>
+        <variable constant="0" name="score" sid="310178750695381" static="0" type="number">0</variable>
+    </events>
+</c2eventsheet>

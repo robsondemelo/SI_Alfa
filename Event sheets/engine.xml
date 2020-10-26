@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>engine</name>
+    <events>
+        <event-block sid="922142564483706">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="285650809737063" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="141900252449145" type="System">
+                    <param id="0" name="Variable">startBox</param>
+                    <param id="1" name="Value">box.Count</param>
+                </action>
+                <action id="-9" name="Set value" sid="988286624866726" type="System">
+                    <param id="0" name="Variable">maxShoot</param>
+                    <param id="1" name="Value">int((startBox * percBox) + boxExtra)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="962945154753157">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="162922982168009" type="System" />
+            </conditions>
+            <actions>
+                <action id="-22" name="Set angle toward position" sid="832528515878144" type="canhao">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
+                </action>
+                <action id="0" name="Set text" sid="740280384677786" type="txtScore">
+                    <param id="0" name="Text">&quot;Score: &quot;&amp; score</param>
+                </action>
+                <action id="0" name="Set text" sid="530665360580210" type="txtMaxShoot">
+                    <param id="0" name="Text">&quot;Shoot: &quot; &amp; maxShoot</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="622057602684052">
+            <conditions>
+                <condition id="1" name="On any click" sid="958211218728414" type="Mouse" />
+                <condition id="-14" name="Compare variable" sid="201232477279782" type="System">
+                    <param id="0" name="Variable">maxShoot</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="590671380547909" type="canhao">
+                    <param id="0" name="Object">bullet</param>
+                    <param id="1" name="Layer">&quot;main&quot;</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action behavior="Physics" id="5" name="Apply impulse at angle" sid="621652540053855" type="bullet">
+                    <param id="0" name="Impulse">distance(canhao.X,canhao.Y,Mouse.X,Mouse.Y) / 25</param>
+                    <param id="1" name="Angle">canhao.Angle</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-11" name="Subtract from" sid="605790757482080" type="System">
+                    <param id="0" name="Variable">maxShoot</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="330071245020949">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="789017009582838" type="bullet">
+                    <param id="0" name="Object">box</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="115417974524563" type="box" />
+                <action id="0" name="Spawn another object" sid="802058944344540" type="box">
+                    <param id="0" name="Object">Particles</param>
+                    <param id="1" name="Layer">&quot;main&quot;</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-10" name="Add to" sid="179855634958888" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="-10" name="Add to" sid="762005852188336" type="System">
+                    <param id="0" name="Variable">endBox</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="528105063573452">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="441974349134458" type="System">
+                    <param id="0" name="Variable">startBox</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">endBox</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-43" name="Go to next/previous layout" sid="299375434219625" type="System">
+                    <param id="0" name="Which">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
